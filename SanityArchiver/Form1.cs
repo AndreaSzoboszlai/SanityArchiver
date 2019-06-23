@@ -37,6 +37,8 @@ namespace SanityArchiver
                 {
                     compressing.Text = "Decompress File";
                 }
+
+                CheckEncryption();
             }
         }
 
@@ -90,6 +92,44 @@ namespace SanityArchiver
             deCompressor.Close();
             input.Close();
             output.Close();
+        }
+
+        private void EditProps_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine("Needs implementing.");
+        }
+
+        public static void AddEncryption(string FileName)
+        {
+
+            File.Encrypt(FileName);
+
+        }
+
+        // Decrypt a file.
+        public static void RemoveEncryption(string FileName)
+        {
+            File.Decrypt(FileName);
+        }
+
+        private void Encription_Click(object sender, EventArgs e)
+        {
+            CheckEncryption();
+        }
+
+        private void CheckEncryption()
+        {
+            FileAttributes attributes = File.GetAttributes(selected);
+            if ((attributes & FileAttributes.Encrypted) == FileAttributes.Encrypted)
+            {
+                encription.Text = "Decrypt";
+                RemoveEncryption(selected);
+            }
+            else
+            {
+                encription.Text = "Encrypt";
+                AddEncryption(selected);
+            }
         }
     }
 }

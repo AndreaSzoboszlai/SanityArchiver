@@ -34,6 +34,7 @@
             this.openSelected = new System.Windows.Forms.Button();
             this.compressing = new System.Windows.Forms.Button();
             this.editProps = new System.Windows.Forms.Button();
+            this.encription = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // openFileBrowser
@@ -86,12 +87,24 @@
             this.editProps.TabIndex = 4;
             this.editProps.Text = "Edit Properties";
             this.editProps.UseVisualStyleBackColor = true;
+            this.editProps.Click += new System.EventHandler(this.EditProps_Click);
+            // 
+            // encription
+            // 
+            this.encription.Location = new System.Drawing.Point(84, 236);
+            this.encription.Name = "encription";
+            this.encription.Size = new System.Drawing.Size(156, 31);
+            this.encription.TabIndex = 5;
+            this.encription.Text = "Encription";
+            this.encription.UseVisualStyleBackColor = true;
+            this.encription.Click += new System.EventHandler(this.Encription_Click);
             // 
             // SanityArchiver
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(337, 450);
+            this.Controls.Add(this.encription);
             this.Controls.Add(this.editProps);
             this.Controls.Add(this.compressing);
             this.Controls.Add(this.openSelected);
@@ -112,6 +125,7 @@
         private System.Windows.Forms.Button openSelected;
         private System.Windows.Forms.Button compressing;
         private System.Windows.Forms.Button editProps;
+        private System.Windows.Forms.Button encription;
     }
 }
 
