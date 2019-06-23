@@ -40,10 +40,13 @@
             this.browseCopyFile = new System.Windows.Forms.Button();
             this.destenationFolder = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.moveFile = new System.Windows.Forms.Button();
             this.copied = new System.Windows.Forms.Label();
-            this.folderBrowser = new System.Windows.Forms.FolderBrowserDialog();
             this.copyFile = new System.Windows.Forms.Button();
+            this.folderBrowser = new System.Windows.Forms.FolderBrowserDialog();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // openFileBrowser
@@ -53,14 +56,14 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(13, 13);
+            this.textBox1.Location = new System.Drawing.Point(6, 31);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(305, 22);
             this.textBox1.TabIndex = 0;
             // 
             // browse
             // 
-            this.browse.Location = new System.Drawing.Point(84, 46);
+            this.browse.Location = new System.Drawing.Point(77, 64);
             this.browse.Name = "browse";
             this.browse.Size = new System.Drawing.Size(156, 31);
             this.browse.TabIndex = 1;
@@ -70,7 +73,7 @@
             // 
             // openSelected
             // 
-            this.openSelected.Location = new System.Drawing.Point(84, 94);
+            this.openSelected.Location = new System.Drawing.Point(77, 112);
             this.openSelected.Name = "openSelected";
             this.openSelected.Size = new System.Drawing.Size(156, 31);
             this.openSelected.TabIndex = 2;
@@ -80,7 +83,7 @@
             // 
             // compressing
             // 
-            this.compressing.Location = new System.Drawing.Point(84, 143);
+            this.compressing.Location = new System.Drawing.Point(77, 161);
             this.compressing.Name = "compressing";
             this.compressing.Size = new System.Drawing.Size(156, 31);
             this.compressing.TabIndex = 3;
@@ -90,7 +93,7 @@
             // 
             // editProps
             // 
-            this.editProps.Location = new System.Drawing.Point(84, 190);
+            this.editProps.Location = new System.Drawing.Point(77, 208);
             this.editProps.Name = "editProps";
             this.editProps.Size = new System.Drawing.Size(156, 31);
             this.editProps.TabIndex = 4;
@@ -100,7 +103,7 @@
             // 
             // encription
             // 
-            this.encription.Location = new System.Drawing.Point(84, 236);
+            this.encription.Location = new System.Drawing.Point(77, 254);
             this.encription.Name = "encription";
             this.encription.Size = new System.Drawing.Size(156, 31);
             this.encription.TabIndex = 5;
@@ -144,6 +147,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.moveFile);
             this.groupBox1.Controls.Add(this.copied);
             this.groupBox1.Controls.Add(this.copyFile);
             this.groupBox1.Controls.Add(this.textBox2);
@@ -152,22 +156,28 @@
             this.groupBox1.Controls.Add(this.textBox3);
             this.groupBox1.Location = new System.Drawing.Point(370, 13);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(340, 241);
+            this.groupBox1.Size = new System.Drawing.Size(340, 285);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Copy File";
+            this.groupBox1.Text = "Copy or Move File";
+            // 
+            // moveFile
+            // 
+            this.moveFile.Location = new System.Drawing.Point(58, 214);
+            this.moveFile.Name = "moveFile";
+            this.moveFile.Size = new System.Drawing.Size(229, 31);
+            this.moveFile.TabIndex = 11;
+            this.moveFile.Text = "Move file";
+            this.moveFile.UseVisualStyleBackColor = true;
+            this.moveFile.Click += new System.EventHandler(this.MoveFile_Click);
             // 
             // copied
             // 
             this.copied.AutoSize = true;
-            this.copied.Location = new System.Drawing.Point(150, 211);
+            this.copied.Location = new System.Drawing.Point(94, 254);
             this.copied.Name = "copied";
             this.copied.Size = new System.Drawing.Size(0, 17);
             this.copied.TabIndex = 10;
-            // 
-            // folderBrowser
-            // 
-            this.folderBrowser.SelectedPath = "C:\\";
             // 
             // copyFile
             // 
@@ -179,24 +189,39 @@
             this.copyFile.UseVisualStyleBackColor = true;
             this.copyFile.Click += new System.EventHandler(this.CopyFile_Click);
             // 
+            // folderBrowser
+            // 
+            this.folderBrowser.SelectedPath = "C:\\";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.textBox1);
+            this.groupBox2.Controls.Add(this.browse);
+            this.groupBox2.Controls.Add(this.encription);
+            this.groupBox2.Controls.Add(this.openSelected);
+            this.groupBox2.Controls.Add(this.editProps);
+            this.groupBox2.Controls.Add(this.compressing);
+            this.groupBox2.Location = new System.Drawing.Point(23, 13);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(329, 321);
+            this.groupBox2.TabIndex = 11;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Select and Modify Files";
+            // 
             // SanityArchiver
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(747, 450);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.encription);
-            this.Controls.Add(this.editProps);
-            this.Controls.Add(this.compressing);
-            this.Controls.Add(this.openSelected);
-            this.Controls.Add(this.browse);
-            this.Controls.Add(this.textBox1);
             this.Name = "SanityArchiver";
             this.Text = "Sanity Archiver";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -217,6 +242,8 @@
         private System.Windows.Forms.Label copied;
         private System.Windows.Forms.FolderBrowserDialog folderBrowser;
         private System.Windows.Forms.Button copyFile;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button moveFile;
     }
 }
 

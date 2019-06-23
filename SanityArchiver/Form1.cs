@@ -169,5 +169,19 @@ namespace SanityArchiver
             }
 
         }
+
+        private void MoveFile_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(textBox2.Text) && !string.IsNullOrWhiteSpace(textBox3.Text))
+            {
+                FileInfo fileSelected = new FileInfo(selectedCopy);
+                File.Move(selectedCopy, selectedFolder + "\\" + fileSelected.Name);
+                copied.Text = "Succesfully moved file.";
+            }
+            else
+            {
+                copied.Text = "No selected file or directory";
+            }
+        }
     }
 }
