@@ -16,6 +16,8 @@ namespace SanityArchiver
     {
         string selected;
         FileInfo fileSelected;
+        string selectedCopy;
+        string selectedFolder;
         public SanityArchiver()
         {
             InitializeComponent();
@@ -130,6 +132,42 @@ namespace SanityArchiver
                 encription.Text = "Encrypt";
                 AddEncryption(selected);
             }
+        }
+
+        private void BrowseCopyFile_Click(object sender, EventArgs e)
+        {
+            DialogResult result = openFileBrowser.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                selectedCopy = openFileBrowser.FileName;
+                textBox2.Text = selectedCopy;
+            }
+        }
+
+        private void DestenationFolder_Click(object sender, EventArgs e)
+        {
+            DialogResult result = folderBrowser.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                selectedFolder = folderBrowser.SelectedPath;
+                textBox3.Text = selectedFolder;
+            }
+        }
+
+        private void CopyFile_Click(object sender, EventArgs e)
+        {
+            
+            if (!string.IsNullOrWhiteSpace(textBox2.Text) && !string.IsNullOrWhiteSpace(textBox3.Text))
+            {
+                FileInfo fileSelected = new FileInfo(selectedCopy);
+                File.Copy(selectedCopy, selectedFolder + "\\" + fileSelected.Name);
+                copied.Text = "Succesfully copied file.";            
+            }
+            else
+            {
+                copied.Text = "No selected file or directory";
+            }
+
         }
     }
 }
