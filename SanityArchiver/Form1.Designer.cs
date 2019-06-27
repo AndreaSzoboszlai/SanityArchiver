@@ -45,8 +45,14 @@
             this.copyFile = new System.Windows.Forms.Button();
             this.folderBrowser = new System.Windows.Forms.FolderBrowserDialog();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.calculateSize = new System.Windows.Forms.Button();
+            this.browseFolders = new System.Windows.Forms.Button();
+            this.sizeOfDirectory = new System.Windows.Forms.GroupBox();
+            this.sizeOfChoosenDirectory = new System.Windows.Forms.Label();
+            this.choosenFolder = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.sizeOfDirectory.SuspendLayout();
             this.SuspendLayout();
             // 
             // openFileBrowser
@@ -89,7 +95,6 @@
             this.compressing.TabIndex = 3;
             this.compressing.Text = "Compressing File";
             this.compressing.UseVisualStyleBackColor = true;
-            this.compressing.Click += new System.EventHandler(this.Compressing_Click);
             // 
             // editProps
             // 
@@ -99,7 +104,6 @@
             this.editProps.TabIndex = 4;
             this.editProps.Text = "Edit Properties";
             this.editProps.UseVisualStyleBackColor = true;
-            this.editProps.Click += new System.EventHandler(this.EditProps_Click);
             // 
             // encription
             // 
@@ -109,7 +113,6 @@
             this.encription.TabIndex = 5;
             this.encription.Text = "Encription";
             this.encription.UseVisualStyleBackColor = true;
-            this.encription.Click += new System.EventHandler(this.Encription_Click);
             // 
             // textBox2
             // 
@@ -133,7 +136,6 @@
             this.browseCopyFile.TabIndex = 8;
             this.browseCopyFile.Text = "Browse files";
             this.browseCopyFile.UseVisualStyleBackColor = true;
-            this.browseCopyFile.Click += new System.EventHandler(this.BrowseCopyFile_Click);
             // 
             // destenationFolder
             // 
@@ -143,7 +145,6 @@
             this.destenationFolder.TabIndex = 9;
             this.destenationFolder.Text = "Browse files";
             this.destenationFolder.UseVisualStyleBackColor = true;
-            this.destenationFolder.Click += new System.EventHandler(this.DestenationFolder_Click);
             // 
             // groupBox1
             // 
@@ -169,7 +170,6 @@
             this.moveFile.TabIndex = 11;
             this.moveFile.Text = "Move file";
             this.moveFile.UseVisualStyleBackColor = true;
-            this.moveFile.Click += new System.EventHandler(this.MoveFile_Click);
             // 
             // copied
             // 
@@ -187,7 +187,6 @@
             this.copyFile.TabIndex = 10;
             this.copyFile.Text = "Copy file";
             this.copyFile.UseVisualStyleBackColor = true;
-            this.copyFile.Click += new System.EventHandler(this.CopyFile_Click);
             // 
             // folderBrowser
             // 
@@ -203,16 +202,63 @@
             this.groupBox2.Controls.Add(this.compressing);
             this.groupBox2.Location = new System.Drawing.Point(23, 13);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(329, 321);
+            this.groupBox2.Size = new System.Drawing.Size(329, 308);
             this.groupBox2.TabIndex = 11;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Select and Modify Files";
+            // 
+            // calculateSize
+            // 
+            this.calculateSize.Location = new System.Drawing.Point(162, 51);
+            this.calculateSize.Name = "calculateSize";
+            this.calculateSize.Size = new System.Drawing.Size(112, 31);
+            this.calculateSize.TabIndex = 6;
+            this.calculateSize.Text = "Calculate Size";
+            this.calculateSize.UseVisualStyleBackColor = true;
+            // 
+            // browseFolders
+            // 
+            this.browseFolders.Location = new System.Drawing.Point(44, 51);
+            this.browseFolders.Name = "browseFolders";
+            this.browseFolders.Size = new System.Drawing.Size(112, 31);
+            this.browseFolders.TabIndex = 12;
+            this.browseFolders.Text = "Browse files";
+            this.browseFolders.UseVisualStyleBackColor = true;
+            // 
+            // sizeOfDirectory
+            // 
+            this.sizeOfDirectory.Controls.Add(this.sizeOfChoosenDirectory);
+            this.sizeOfDirectory.Controls.Add(this.choosenFolder);
+            this.sizeOfDirectory.Controls.Add(this.browseFolders);
+            this.sizeOfDirectory.Controls.Add(this.calculateSize);
+            this.sizeOfDirectory.Location = new System.Drawing.Point(29, 337);
+            this.sizeOfDirectory.Name = "sizeOfDirectory";
+            this.sizeOfDirectory.Size = new System.Drawing.Size(323, 124);
+            this.sizeOfDirectory.TabIndex = 13;
+            this.sizeOfDirectory.TabStop = false;
+            this.sizeOfDirectory.Text = "Size Of Choosen Directory";
+            // 
+            // sizeOfChoosenDirectory
+            // 
+            this.sizeOfChoosenDirectory.AutoSize = true;
+            this.sizeOfChoosenDirectory.Location = new System.Drawing.Point(83, 95);
+            this.sizeOfChoosenDirectory.Name = "sizeOfChoosenDirectory";
+            this.sizeOfChoosenDirectory.Size = new System.Drawing.Size(0, 17);
+            this.sizeOfChoosenDirectory.TabIndex = 12;
+            // 
+            // choosenFolder
+            // 
+            this.choosenFolder.Location = new System.Drawing.Point(12, 23);
+            this.choosenFolder.Name = "choosenFolder";
+            this.choosenFolder.Size = new System.Drawing.Size(305, 22);
+            this.choosenFolder.TabIndex = 12;
             // 
             // SanityArchiver
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(747, 450);
+            this.ClientSize = new System.Drawing.Size(747, 500);
+            this.Controls.Add(this.sizeOfDirectory);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "SanityArchiver";
@@ -221,6 +267,8 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.sizeOfDirectory.ResumeLayout(false);
+            this.sizeOfDirectory.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -244,6 +292,11 @@
         private System.Windows.Forms.Button copyFile;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button moveFile;
+        private System.Windows.Forms.Button calculateSize;
+        private System.Windows.Forms.Button browseFolders;
+        private System.Windows.Forms.GroupBox sizeOfDirectory;
+        private System.Windows.Forms.Label sizeOfChoosenDirectory;
+        private System.Windows.Forms.TextBox choosenFolder;
     }
 }
 

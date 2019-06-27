@@ -46,19 +46,25 @@ namespace SanityArchiver
 
         private void OpenSelected_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start(selected);
-        }
+            if (!string.IsNullOrWhiteSpace(choosenFolder.Text))
+            {
+                System.Diagnostics.Process.Start(selected);
 
+            }
+        }
         private void Compressing_Click(object sender, EventArgs e)
         {
-            fileSelected = new FileInfo(selected);
-            if (fileSelected.Extension != ".gz")
-            { 
-                Compress();
-            }
-            else
+            if (!string.IsNullOrWhiteSpace(choosenFolder.Text))
             {
-                DeCompress();
+                fileSelected = new FileInfo(selected);
+                if (fileSelected.Extension != ".gz")
+                {
+                    Compress();
+                }
+                else
+                {
+                    DeCompress();
+                }
             }
 
         }
@@ -86,7 +92,7 @@ namespace SanityArchiver
             FileInfo fileSelectedTo = new FileInfo(selected.Remove(selected.Length - fileSelected.Extension.Length));
             FileInfo fileSelectedFrom = new FileInfo(selected);
             FileStream input = fileSelectedFrom.OpenRead();
-            FileStream output = File.Create(Path.GetDirectoryName(selected) +"\\" +  @"" + fileSelectedTo.Name);
+            FileStream output = File.Create(Path.GetDirectoryName(selected) + "\\" + @"" + fileSelectedTo.Name);
             GZipStream deCompressor = new GZipStream(input, CompressionMode.Decompress);
 
             deCompressor.CopyTo(output);
@@ -121,16 +127,19 @@ namespace SanityArchiver
 
         private void CheckEncryption()
         {
-            FileAttributes attributes = File.GetAttributes(selected);
-            if ((attributes & FileAttributes.Encrypted) == FileAttributes.Encrypted)
+            if (!string.IsNullOrWhiteSpace(choosenFolder.Text))
             {
-                encription.Text = "Decrypt";
-                RemoveEncryption(selected);
-            }
-            else
-            {
-                encription.Text = "Encrypt";
-                AddEncryption(selected);
+                FileAttributes attributes = File.GetAttributes(selected);
+                if ((attributes & FileAttributes.Encrypted) == FileAttributes.Encrypted)
+                {
+                    encription.Text = "Decrypt";
+                    RemoveEncryption(selected);
+                }
+                else
+                {
+                    encription.Text = "Encrypt";
+                    AddEncryption(selected);
+                }
             }
         }
 
@@ -156,12 +165,12 @@ namespace SanityArchiver
 
         private void CopyFile_Click(object sender, EventArgs e)
         {
-            
+
             if (!string.IsNullOrWhiteSpace(textBox2.Text) && !string.IsNullOrWhiteSpace(textBox3.Text))
             {
                 FileInfo fileSelected = new FileInfo(selectedCopy);
                 File.Copy(selectedCopy, selectedFolder + "\\" + fileSelected.Name);
-                copied.Text = "Succesfully copied file.";            
+                copied.Text = "Succesfully copied file.";
             }
             else
             {
@@ -183,5 +192,27 @@ namespace SanityArchiver
                 copied.Text = "No selected file or directory";
             }
         }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            DialogResult result = folderBrowser.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                selectedFolder = folderBrowser.SelectedPath;
+                choosenFolder.Text = selectedFolder;
+            }
+        }
+
+        private void CalculateSize_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(choosenFolder.Text))
+            {
+                DirectoryInfo info = new DirectoryInfo(selectedFolder);
+                long totalSize = info.EnumerateFiles().Sum(file => file.Length);
+                sizeOfChoosenDirectory.Text = totalSize.ToString() + "bytes";
+            }
+        }
+
+
     }
 }
