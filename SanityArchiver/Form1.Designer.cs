@@ -45,15 +45,21 @@
             this.copyFile = new System.Windows.Forms.Button();
             this.folderBrowser = new System.Windows.Forms.FolderBrowserDialog();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.changeAttributes = new System.Windows.Forms.Button();
             this.calculateSize = new System.Windows.Forms.Button();
             this.browseFolders = new System.Windows.Forms.Button();
             this.sizeOfDirectory = new System.Windows.Forms.GroupBox();
             this.sizeOfChoosenDirectory = new System.Windows.Forms.Label();
             this.choosenFolder = new System.Windows.Forms.TextBox();
-            this.changeAttributes = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.searchDir = new System.Windows.Forms.TextBox();
+            this.search = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.regEx = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.sizeOfDirectory.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // openFileBrowser
@@ -209,6 +215,16 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Select and Modify Files";
             // 
+            // changeAttributes
+            // 
+            this.changeAttributes.Location = new System.Drawing.Point(77, 302);
+            this.changeAttributes.Name = "changeAttributes";
+            this.changeAttributes.Size = new System.Drawing.Size(156, 31);
+            this.changeAttributes.TabIndex = 12;
+            this.changeAttributes.Text = "Change Attributes";
+            this.changeAttributes.UseVisualStyleBackColor = true;
+            this.changeAttributes.Click += new System.EventHandler(this.ChangeAttributes_Click);
+            // 
             // calculateSize
             // 
             this.calculateSize.Location = new System.Drawing.Point(162, 51);
@@ -255,21 +271,59 @@
             this.choosenFolder.Size = new System.Drawing.Size(305, 22);
             this.choosenFolder.TabIndex = 12;
             // 
-            // changeAttributes
+            // groupBox3
             // 
-            this.changeAttributes.Location = new System.Drawing.Point(77, 302);
-            this.changeAttributes.Name = "changeAttributes";
-            this.changeAttributes.Size = new System.Drawing.Size(156, 31);
-            this.changeAttributes.TabIndex = 12;
-            this.changeAttributes.Text = "Change Attributes";
-            this.changeAttributes.UseVisualStyleBackColor = true;
-            this.changeAttributes.Click += new System.EventHandler(this.ChangeAttributes_Click);
+            this.groupBox3.Controls.Add(this.searchDir);
+            this.groupBox3.Controls.Add(this.search);
+            this.groupBox3.Controls.Add(this.button2);
+            this.groupBox3.Controls.Add(this.regEx);
+            this.groupBox3.Location = new System.Drawing.Point(370, 315);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(340, 204);
+            this.groupBox3.TabIndex = 14;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "groupBox3";
+            // 
+            // searchDir
+            // 
+            this.searchDir.Location = new System.Drawing.Point(19, 42);
+            this.searchDir.Name = "searchDir";
+            this.searchDir.Size = new System.Drawing.Size(305, 22);
+            this.searchDir.TabIndex = 10;
+            // 
+            // search
+            // 
+            this.search.Location = new System.Drawing.Point(97, 145);
+            this.search.Name = "search";
+            this.search.Size = new System.Drawing.Size(156, 31);
+            this.search.TabIndex = 13;
+            this.search.Text = "Search";
+            this.search.UseVisualStyleBackColor = true;
+            this.search.Click += new System.EventHandler(this.Search_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(97, 70);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(156, 31);
+            this.button2.TabIndex = 12;
+            this.button2.Text = "Browse files";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.Button2_Click);
+            // 
+            // regEx
+            // 
+            this.regEx.Location = new System.Drawing.Point(19, 117);
+            this.regEx.Name = "regEx";
+            this.regEx.Size = new System.Drawing.Size(305, 22);
+            this.regEx.TabIndex = 11;
             // 
             // SanityArchiver
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(747, 592);
+            this.ClientSize = new System.Drawing.Size(747, 540);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.sizeOfDirectory);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -281,6 +335,8 @@
             this.groupBox2.PerformLayout();
             this.sizeOfDirectory.ResumeLayout(false);
             this.sizeOfDirectory.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -310,6 +366,11 @@
         private System.Windows.Forms.Label sizeOfChoosenDirectory;
         private System.Windows.Forms.TextBox choosenFolder;
         private System.Windows.Forms.Button changeAttributes;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.TextBox searchDir;
+        private System.Windows.Forms.Button search;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox regEx;
     }
 }
 

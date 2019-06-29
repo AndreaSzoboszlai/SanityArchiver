@@ -31,10 +31,12 @@
             this.selectedFile = new System.Windows.Forms.Label();
             this.okAttrButton = new System.Windows.Forms.Button();
             this.attrCheckBox = new System.Windows.Forms.CheckedListBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // selectedFile
             // 
+            this.selectedFile.AutoSize = true;
             this.selectedFile.Location = new System.Drawing.Point(12, 37);
             this.selectedFile.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.selectedFile.Name = "selectedFile";
@@ -44,8 +46,8 @@
             // 
             // okAttrButton
             // 
-            this.okAttrButton.Location = new System.Drawing.Point(60, 249);
-            this.okAttrButton.Margin = new System.Windows.Forms.Padding(4);
+            this.okAttrButton.Location = new System.Drawing.Point(59, 226);
+            this.okAttrButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.okAttrButton.Name = "okAttrButton";
             this.okAttrButton.Size = new System.Drawing.Size(201, 38);
             this.okAttrButton.TabIndex = 1;
@@ -64,27 +66,38 @@
             "Archive",
             "NotContentIndexed",
             "Encrypted"});
-            this.attrCheckBox.Location = new System.Drawing.Point(75, 119);
-            this.attrCheckBox.Margin = new System.Windows.Forms.Padding(4);
+            this.attrCheckBox.Location = new System.Drawing.Point(78, 96);
+            this.attrCheckBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.attrCheckBox.Name = "attrCheckBox";
             this.attrCheckBox.Size = new System.Drawing.Size(201, 110);
             this.attrCheckBox.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 268);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(53, 20);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "label1";
             // 
             // FileAtrributesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(331, 300);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.attrCheckBox);
             this.Controls.Add(this.okAttrButton);
             this.Controls.Add(this.selectedFile);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FileAtrributesForm";
             this.Text = "FileAtrributesForm";
             this.Load += new System.EventHandler(this.FileAtrributesForm_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -93,5 +106,6 @@
         private System.Windows.Forms.Label selectedFile;
         private System.Windows.Forms.Button okAttrButton;
         private System.Windows.Forms.CheckedListBox attrCheckBox;
+        private System.Windows.Forms.Label label1;
     }
 }

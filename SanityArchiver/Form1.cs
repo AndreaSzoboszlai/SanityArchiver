@@ -221,5 +221,22 @@ namespace SanityArchiver
                 fileAtrributesForm.Show();
             }
         }
+
+        private void Search_Click(object sender, EventArgs e)
+        {
+            string[] files = Directory.GetFiles(searchDir.Text, regEx.Text, SearchOption.AllDirectories);
+            ListSearchedFiles search = new ListSearchedFiles(files);
+            search.Show();
+        }
+
+        private void Button2_Click(object sender, EventArgs e)
+        {
+            DialogResult result = folderBrowser.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                selectedFolder = folderBrowser.SelectedPath;
+                searchDir.Text = selectedFolder;
+            }
+        }
     }
 }
