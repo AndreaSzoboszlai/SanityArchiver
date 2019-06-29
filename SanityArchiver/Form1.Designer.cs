@@ -50,6 +50,7 @@
             this.sizeOfDirectory = new System.Windows.Forms.GroupBox();
             this.sizeOfChoosenDirectory = new System.Windows.Forms.Label();
             this.choosenFolder = new System.Windows.Forms.TextBox();
+            this.changeAttributes = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.sizeOfDirectory.SuspendLayout();
@@ -194,6 +195,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.changeAttributes);
             this.groupBox2.Controls.Add(this.textBox1);
             this.groupBox2.Controls.Add(this.browse);
             this.groupBox2.Controls.Add(this.encription);
@@ -202,7 +204,7 @@
             this.groupBox2.Controls.Add(this.compressing);
             this.groupBox2.Location = new System.Drawing.Point(23, 13);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(329, 308);
+            this.groupBox2.Size = new System.Drawing.Size(329, 353);
             this.groupBox2.TabIndex = 11;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Select and Modify Files";
@@ -231,7 +233,7 @@
             this.sizeOfDirectory.Controls.Add(this.choosenFolder);
             this.sizeOfDirectory.Controls.Add(this.browseFolders);
             this.sizeOfDirectory.Controls.Add(this.calculateSize);
-            this.sizeOfDirectory.Location = new System.Drawing.Point(29, 337);
+            this.sizeOfDirectory.Location = new System.Drawing.Point(29, 395);
             this.sizeOfDirectory.Name = "sizeOfDirectory";
             this.sizeOfDirectory.Size = new System.Drawing.Size(323, 124);
             this.sizeOfDirectory.TabIndex = 13;
@@ -253,11 +255,21 @@
             this.choosenFolder.Size = new System.Drawing.Size(305, 22);
             this.choosenFolder.TabIndex = 12;
             // 
+            // changeAttributes
+            // 
+            this.changeAttributes.Location = new System.Drawing.Point(77, 302);
+            this.changeAttributes.Name = "changeAttributes";
+            this.changeAttributes.Size = new System.Drawing.Size(156, 31);
+            this.changeAttributes.TabIndex = 12;
+            this.changeAttributes.Text = "Change Attributes";
+            this.changeAttributes.UseVisualStyleBackColor = true;
+            this.changeAttributes.Click += new System.EventHandler(this.ChangeAttributes_Click);
+            // 
             // SanityArchiver
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(747, 500);
+            this.ClientSize = new System.Drawing.Size(747, 592);
             this.Controls.Add(this.sizeOfDirectory);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -297,6 +309,7 @@
         private System.Windows.Forms.GroupBox sizeOfDirectory;
         private System.Windows.Forms.Label sizeOfChoosenDirectory;
         private System.Windows.Forms.TextBox choosenFolder;
+        private System.Windows.Forms.Button changeAttributes;
     }
 }
 

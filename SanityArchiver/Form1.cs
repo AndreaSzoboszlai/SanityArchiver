@@ -69,7 +69,7 @@ namespace SanityArchiver
 
         }
 
-        private void Compress()
+        public void Compress()
         {
             FileInfo fileSelectedFrom = new FileInfo(selected);
             FileInfo fileSelectedTo = new FileInfo(selected);
@@ -87,7 +87,7 @@ namespace SanityArchiver
             output.Close();
         }
 
-        private void DeCompress()
+        public void DeCompress()
         {
             FileInfo fileSelectedTo = new FileInfo(selected.Remove(selected.Length - fileSelected.Extension.Length));
             FileInfo fileSelectedFrom = new FileInfo(selected);
@@ -213,6 +213,13 @@ namespace SanityArchiver
             }
         }
 
-
+        private void ChangeAttributes_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(textBox1.Text))
+            {
+                FileAtrributesForm fileAtrributesForm = new FileAtrributesForm(textBox1.Text, fileSelected);
+                fileAtrributesForm.Show();
+            }
+        }
     }
 }
