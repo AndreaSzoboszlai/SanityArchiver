@@ -33,7 +33,6 @@
             this.browse = new System.Windows.Forms.Button();
             this.openSelected = new System.Windows.Forms.Button();
             this.compressing = new System.Windows.Forms.Button();
-            this.editProps = new System.Windows.Forms.Button();
             this.encription = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -102,24 +101,17 @@
             this.compressing.TabIndex = 3;
             this.compressing.Text = "Compressing File";
             this.compressing.UseVisualStyleBackColor = true;
-            // 
-            // editProps
-            // 
-            this.editProps.Location = new System.Drawing.Point(77, 208);
-            this.editProps.Name = "editProps";
-            this.editProps.Size = new System.Drawing.Size(156, 31);
-            this.editProps.TabIndex = 4;
-            this.editProps.Text = "Edit Properties";
-            this.editProps.UseVisualStyleBackColor = true;
+            this.compressing.Click += new System.EventHandler(this.Compressing_Click);
             // 
             // encription
             // 
-            this.encription.Location = new System.Drawing.Point(77, 254);
+            this.encription.Location = new System.Drawing.Point(77, 214);
             this.encription.Name = "encription";
             this.encription.Size = new System.Drawing.Size(156, 31);
             this.encription.TabIndex = 5;
             this.encription.Text = "Encription";
             this.encription.UseVisualStyleBackColor = true;
+            this.encription.Click += new System.EventHandler(this.Encription_Click);
             // 
             // textBox2
             // 
@@ -164,7 +156,7 @@
             this.groupBox1.Controls.Add(this.textBox3);
             this.groupBox1.Location = new System.Drawing.Point(370, 13);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(340, 285);
+            this.groupBox1.Size = new System.Drawing.Size(340, 266);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Copy or Move File";
@@ -206,18 +198,17 @@
             this.groupBox2.Controls.Add(this.browse);
             this.groupBox2.Controls.Add(this.encription);
             this.groupBox2.Controls.Add(this.openSelected);
-            this.groupBox2.Controls.Add(this.editProps);
             this.groupBox2.Controls.Add(this.compressing);
             this.groupBox2.Location = new System.Drawing.Point(23, 13);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(329, 353);
+            this.groupBox2.Size = new System.Drawing.Size(329, 317);
             this.groupBox2.TabIndex = 11;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Select and Modify Files";
             // 
             // changeAttributes
             // 
-            this.changeAttributes.Location = new System.Drawing.Point(77, 302);
+            this.changeAttributes.Location = new System.Drawing.Point(77, 262);
             this.changeAttributes.Name = "changeAttributes";
             this.changeAttributes.Size = new System.Drawing.Size(156, 31);
             this.changeAttributes.TabIndex = 12;
@@ -227,7 +218,7 @@
             // 
             // calculateSize
             // 
-            this.calculateSize.Location = new System.Drawing.Point(162, 51);
+            this.calculateSize.Location = new System.Drawing.Point(152, 88);
             this.calculateSize.Name = "calculateSize";
             this.calculateSize.Size = new System.Drawing.Size(112, 31);
             this.calculateSize.TabIndex = 6;
@@ -236,7 +227,7 @@
             // 
             // browseFolders
             // 
-            this.browseFolders.Location = new System.Drawing.Point(44, 51);
+            this.browseFolders.Location = new System.Drawing.Point(34, 88);
             this.browseFolders.Name = "browseFolders";
             this.browseFolders.Size = new System.Drawing.Size(112, 31);
             this.browseFolders.TabIndex = 12;
@@ -249,9 +240,9 @@
             this.sizeOfDirectory.Controls.Add(this.choosenFolder);
             this.sizeOfDirectory.Controls.Add(this.browseFolders);
             this.sizeOfDirectory.Controls.Add(this.calculateSize);
-            this.sizeOfDirectory.Location = new System.Drawing.Point(29, 395);
+            this.sizeOfDirectory.Location = new System.Drawing.Point(29, 347);
             this.sizeOfDirectory.Name = "sizeOfDirectory";
-            this.sizeOfDirectory.Size = new System.Drawing.Size(323, 124);
+            this.sizeOfDirectory.Size = new System.Drawing.Size(323, 144);
             this.sizeOfDirectory.TabIndex = 13;
             this.sizeOfDirectory.TabStop = false;
             this.sizeOfDirectory.Text = "Size Of Choosen Directory";
@@ -266,7 +257,7 @@
             // 
             // choosenFolder
             // 
-            this.choosenFolder.Location = new System.Drawing.Point(12, 23);
+            this.choosenFolder.Location = new System.Drawing.Point(12, 37);
             this.choosenFolder.Name = "choosenFolder";
             this.choosenFolder.Size = new System.Drawing.Size(305, 22);
             this.choosenFolder.TabIndex = 12;
@@ -277,7 +268,7 @@
             this.groupBox3.Controls.Add(this.search);
             this.groupBox3.Controls.Add(this.button2);
             this.groupBox3.Controls.Add(this.regEx);
-            this.groupBox3.Location = new System.Drawing.Point(370, 315);
+            this.groupBox3.Location = new System.Drawing.Point(370, 287);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(340, 204);
             this.groupBox3.TabIndex = 14;
@@ -348,7 +339,6 @@
         private System.Windows.Forms.Button browse;
         private System.Windows.Forms.Button openSelected;
         private System.Windows.Forms.Button compressing;
-        private System.Windows.Forms.Button editProps;
         private System.Windows.Forms.Button encription;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;

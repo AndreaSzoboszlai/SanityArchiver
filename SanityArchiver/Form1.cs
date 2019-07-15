@@ -46,28 +46,13 @@ namespace SanityArchiver
 
         private void OpenSelected_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(choosenFolder.Text))
+            if (!string.IsNullOrWhiteSpace(textBox1.Text))
             {
                 System.Diagnostics.Process.Start(selected);
 
             }
         }
-        private void Compressing_Click(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrWhiteSpace(choosenFolder.Text))
-            {
-                fileSelected = new FileInfo(selected);
-                if (fileSelected.Extension != ".gz")
-                {
-                    Compress();
-                }
-                else
-                {
-                    DeCompress();
-                }
-            }
 
-        }
 
         public void Compress()
         {
@@ -102,10 +87,6 @@ namespace SanityArchiver
             output.Close();
         }
 
-        private void EditProps_Click(object sender, EventArgs e)
-        {
-            Console.WriteLine("Needs implementing.");
-        }
 
         public static void AddEncryption(string FileName)
         {
@@ -120,14 +101,11 @@ namespace SanityArchiver
             File.Decrypt(FileName);
         }
 
-        private void Encription_Click(object sender, EventArgs e)
-        {
-            CheckEncryption();
-        }
+
 
         private void CheckEncryption()
         {
-            if (!string.IsNullOrWhiteSpace(choosenFolder.Text))
+            if (!string.IsNullOrWhiteSpace(textBox1.Text))
             {
                 FileAttributes attributes = File.GetAttributes(selected);
                 if ((attributes & FileAttributes.Encrypted) == FileAttributes.Encrypted)
@@ -238,5 +216,27 @@ namespace SanityArchiver
                 searchDir.Text = selectedFolder;
             }
         }
+
+        private void Compressing_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(textBox1.Text))
+            {
+                fileSelected = new FileInfo(selected);
+                if (fileSelected.Extension != ".gz")
+                {
+                    Compress();
+                }
+                else
+                {
+                    DeCompress();
+                }
+            }
+        }
+
+        private void Encription_Click(object sender, EventArgs e)
+        {
+            CheckEncryption();
+        }
+
     }
 }
